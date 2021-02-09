@@ -4,7 +4,7 @@ LABEL maintainer="jacotech <jaco@jaco.tech>"
 RUN set -ex \
     && DEBIAN_FRONTEND=noninteractive apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get upgrade -y \
-    && DEBIAN_FRONTEND=noninteractive apt-get install -y apt-transport-https apt-utils gnupg lsb-release wget locales
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y apt-transport-https apt-utils gnupg lsb-release wget locales unzip
 
 # update locale
 RUN set -ex \
@@ -13,9 +13,14 @@ RUN set -ex \
     && locale-gen
 ENV LANG en_US.utf8
 
+COPY ./set_property.sh /tmp/
+
 RUN set -ex \
     && wget -P /tmp/ http://download.axelor.com/abs/latest/axelor-erp-latest.war \
-    && cp /tmp/axelor-erp-latest.war /usr/local/tomcat/webapps/
+    && unzip  /tmp/axelor-erp-latest.war /usr/local/tomcat/webapps/axelor-erp-latest \
+    && chmod +x /tmp/set_property.sh \
+    && /tmp/set_property.sh db.default.url jdbc:postgresql://db:5432/axelor /usr/local/tomcat/webapps/axelor-erp-latest/WEB-INF/classes/application.properties \
+    && /tmp/set_property.sh db.default.password axelor /usr/local/tomcat/webapps/axelor-erp-latest/WEB-INF/classes/application.properties
 
 EXPOSE 8080
 
