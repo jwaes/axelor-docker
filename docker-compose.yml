@@ -7,15 +7,15 @@ services:
     volumes:
       - db:/var/lib/postgresql/data
     networks:
-      - nextcloud
+      - axelor
     environment:
-      - POSTGRES_PASSWORD=${POSTGRESS_PASSWORD}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - POSTGRES_DB=axelor
       - POSTGRES_USER=axelor
       - PGDATA=/var/lib/postgresql/data
 
   app:
-    build: .
+    build: ./axelor
     image: axelor-jaco
     restart: unless-stopped
     depends_on:

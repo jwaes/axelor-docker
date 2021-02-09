@@ -4,7 +4,8 @@ LABEL maintainer="jacotech <jaco@jaco.tech>"
 RUN set -ex \
     && DEBIAN_FRONTEND=noninteractive apt-get update \
 	&& DEBIAN_FRONTEND=noninteractive apt-get upgrade -y \
-	&& DEBIAN_FRONTEND=noninteractive apt-get install -y gnupg lsb_release wget locales
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y apt-transport-https apt-utils \
+	&& DEBIAN_FRONTEND=noninteractive apt-get install -y gnupg lsb_release wget locales apt-utils
 
 # update locale
 RUN set -ex && \
