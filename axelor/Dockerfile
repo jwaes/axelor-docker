@@ -15,3 +15,7 @@ ENV LANG en_US.utf8
 RUN set -ex && \
     && wget -P /tmp/ http://download.axelor.com/abs/latest/axelor-erp-latest.war \
     && cp /tmp/axelor-erp-latest.war /usr/local/tomcat/webapps/
+
+EXPOSE 8080
+
+CMD ["catalina.sh", "run"]

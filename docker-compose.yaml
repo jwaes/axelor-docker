@@ -1,0 +1,41 @@
+version: '2'
+
+services:
+  db:
+    image: postgres
+    restart: unless-stopped
+    volumes:
+      - db:/var/lib/postgresql/data
+    networks:
+      - nextcloud
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRESS_PASSWORD}
+      - POSTGRES_DB=axelor
+      - POSTGRES_USER=axelor
+      - PGDATA=/var/lib/postgresql/data
+
+  app:
+    build: .
+    image: axelor-jaco
+    restart: unless-stopped
+    depends_on:
+      - db
+    networks:
+      - axelor
+      - web
+    environment:
+      - VIRTUAL_HOST=${HOSTNAME}
+      - LETSENCRYPT_HOST=${HOSTNAME}
+      - LETSENCRYPT_EMAIL=${EMAIL}
+      - VIRTUAL_PORT=8080
+   
+volumes:
+  app:
+  db:
+
+networks:
+  axelor:
+      driver: bridge
+  web:
+      external:
+          name: web
