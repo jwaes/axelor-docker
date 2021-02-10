@@ -20,8 +20,8 @@ services:
     restart: unless-stopped
     depends_on:
       - db
-    volumes:
-      - app-config:/usr/local/tomcat/webapps/axelor-erp-latest/WEB-INF/classes/application.properties
+    # volumes:
+    #   - app-config:/usr/local/tomcat/webapps/axelor-erp-latest/WEB-INF/classes/application.properties
     networks:
       - axelor
       - web
@@ -32,7 +32,7 @@ services:
       - VIRTUAL_PORT=8080
    
 volumes:
-  app-config:
+  # app-config:
   db:
 
 networks:
