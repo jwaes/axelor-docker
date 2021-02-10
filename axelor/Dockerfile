@@ -20,8 +20,8 @@ RUN set -ex \
     && mkdir /usr/local/tomcat/webapps/ROOT \
     && unzip  /tmp/axelor-erp-latest.war -d /usr/local/tomcat/webapps/ROOT/ \
     && chmod +x /tmp/set_property.sh \
-    && /tmp/set_property.sh db.default.url jdbc:postgresql://db:5432/axelor /usr/local/tomcat/webapps/axelor-erp-latest/WEB-INF/classes/application.properties \
-    && /tmp/set_property.sh db.default.password axelor /usr/local/tomcat/webapps/axelor-erp-latest/WEB-INF/classes/application.properties
+    && /tmp/set_property.sh db.default.url jdbc:postgresql://db:5432/axelor /usr/local/tomcat/webapps/ROOT/WEB-INF/classes/application.properties \
+    && /tmp/set_property.sh db.default.password axelor /usr/local/tomcat/webapps/ROOT/WEB-INF/classes/application.properties
 
 EXPOSE 8080
 
