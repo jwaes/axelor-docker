@@ -1,4 +1,4 @@
-FROM tomcat:8.5-jdk8-openjdk-slim
+FROM tomcat:8.5-jdk8-openjdk
 LABEL maintainer="jacotech <jaco@jaco.tech>"
 
 RUN set -ex \
