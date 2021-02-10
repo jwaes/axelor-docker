@@ -18,7 +18,7 @@ COPY ./set_property.sh /tmp/
 RUN set -ex \
     && wget -P /tmp/ http://download.axelor.com/abs/latest/axelor-erp-latest.war \
     && mkdir /usr/local/tomcat/webapps/axelor-erp-latest \
-    && unzip  /tmp/axelor-erp-latest.war /usr/local/tomcat/webapps/axelor-erp-latest/ \
+    && unzip  /tmp/axelor-erp-latest.war /usr/local/tomcat/webapps/ROOT/ \
     && chmod +x /tmp/set_property.sh \
     && /tmp/set_property.sh db.default.url jdbc:postgresql://db:5432/axelor /usr/local/tomcat/webapps/axelor-erp-latest/WEB-INF/classes/application.properties \
     && /tmp/set_property.sh db.default.password axelor /usr/local/tomcat/webapps/axelor-erp-latest/WEB-INF/classes/application.properties
