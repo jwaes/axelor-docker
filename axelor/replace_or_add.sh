@@ -1,4 +1,7 @@
 #!/bin/bash
+echo "key:$1"
+echo "value:$2"
+echo "file:$3"
 
 if grep -q "^$1[\s]*" $3
 then
