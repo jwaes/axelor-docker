@@ -15,12 +15,11 @@ ENV LANG en_US.utf8
 
 ARG PROPFILE=/usr/local/tomcat/webapps/ROOT/WEB-INF/classes/application.properties
 
-ENV PROPFILE ''
-ENV SMTP_HOST 'x'
-ENV SMTP_PORT 'x'
-ENV SMTP_CHANNEL 'x'
-ENV SMTP_USER_NAME 'x'
-ENV SMTP_PASSWORD 'x'
+ENV SMTP_HOST ''
+ENV SMTP_PORT ''
+ENV SMTP_CHANNEL ''
+ENV SMTP_USER_NAME ''
+ENV SMTP_PASSWORD ''
 
 COPY ./replace_or_add.sh /tmp/
 COPY ./setup.sh /tmp/
