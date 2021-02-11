@@ -33,5 +33,6 @@ RUN set -ex \
 
 EXPOSE 8080
 
-# CMD ["catalina.sh", "run"]
-CMD ["/tmp/setup.sh", "run"]
+ENTRYPOINT ["/tmp/setup.sh"]
+CMD ["catalina.sh", "run"]
+
