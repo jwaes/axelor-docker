@@ -13,7 +13,7 @@ RUN set -ex \
     && locale-gen
 ENV LANG en_US.utf8
 
-ARG PROPFILE=/usr/local/tomcat/webapps/ROOT/WEB-INF/classes/application.properties
+ENV PROPFILE '/usr/local/tomcat/webapps/ROOT/WEB-INF/classes/application.properties'
 
 ENV SMTP_HOST ''
 ENV SMTP_PORT ''
