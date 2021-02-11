@@ -18,6 +18,12 @@ COPY ./setup.sh /tmp/
 
 ARG PROPFILE=/usr/local/tomcat/webapps/ROOT/WEB-INF/classes/application.properties
 
+ENV SMTP_HOST ''
+ENV SMTP_PORT ''
+ENV SMTP_CHANNEL ''
+ENV SMTP_USER_NAME ''
+ENV SMTP_PASSWORD ''
+
 RUN set -ex \
     && wget -P /tmp/ http://download.axelor.com/abs/latest/axelor-erp-latest.war \
     && mkdir /usr/local/tomcat/webapps/ROOT \
