@@ -35,3 +35,5 @@ fi
 /tmp/replace_or_add.sh mail.smtp.channel     ${SMTP_CHANNEL}                     ${PROPFILE}
 /tmp/replace_or_add.sh mail.smtp.user        ${SMTP_USER_NAME}                   ${PROPFILE}
 /tmp/replace_or_add.sh mail.smtp.pass        ${SMTP_PASSWORD}                    ${PROPFILE}
+
+catalina.sh

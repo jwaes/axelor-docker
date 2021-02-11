@@ -29,9 +29,9 @@ RUN set -ex \
     && mkdir /usr/local/tomcat/webapps/ROOT \
     && unzip  /tmp/axelor-erp-latest.war -d /usr/local/tomcat/webapps/ROOT/ \
     && chmod +x /tmp/setup.sh \
-    && chmod +x /tmp/replace_or_add.sh \
-    && /tmp/setup.sh
+    && chmod +x /tmp/replace_or_add.sh
 
 EXPOSE 8080
 
-CMD ["catalina.sh", "run"]
+# CMD ["catalina.sh", "run"]
+CMD ["/tmp/setup.sh", "run"]
