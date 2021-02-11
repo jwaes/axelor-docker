@@ -20,8 +20,8 @@ services:
     restart: unless-stopped
     depends_on:
       - db
-    # volumes:
-    #   - app-config:/usr/local/tomcat/webapps/axelor-erp-latest/WEB-INF/classes/application.properties
+    volumes:
+      - app-data:/srv/axelor
     networks:
       - axelor
       - web
@@ -30,9 +30,14 @@ services:
       - LETSENCRYPT_HOST=${HOSTNAME}
       - LETSENCRYPT_EMAIL=${EMAIL}
       - VIRTUAL_PORT=8080
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_PORT=587
+      - SMTP_CHANNEL=starttls
+      - SMTP_USER_NAME=${SMTP_USER_NAME}
+      - SMTP_PASSWORD=${SMTP_PASSWORD}
    
 volumes:
-  # app-config:
+  app-data:
   db:
 
 networks:
